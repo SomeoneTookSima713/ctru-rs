@@ -53,7 +53,7 @@ fn main() {
 
     detect_and_track_libctru();
 
-    let gcc_version = get_gcc_version(PathBuf::from(&devkitarm).join("bin/arm-none-eabi-gcc"));
+    let gcc_version = get_gcc_version(PathBuf::from(&devkitarm).join("bin\\arm-none-eabi-gcc.exe"));
 
     let include_path = PathBuf::from_iter([devkitpro.as_str(), "libctru", "include"]);
     let ctru_header = include_path.join("3ds.h");
@@ -111,8 +111,8 @@ fn main() {
         .expect("Couldn't write bindings!");
 
     // Compile static inline fns wrapper
-    let cc = Path::new(devkitarm.as_str()).join("bin/arm-none-eabi-gcc");
-    let ar = Path::new(devkitarm.as_str()).join("bin/arm-none-eabi-ar");
+    let cc = Path::new(devkitarm.as_str()).join("bin\\arm-none-eabi-gcc.exe");
+    let ar = Path::new(devkitarm.as_str()).join("bin\\arm-none-eabi-ar.exe");
 
     cc::Build::new()
         .compiler(cc)
